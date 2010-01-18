@@ -1,3 +1,10 @@
+mtr (0.75-3) unstable; urgency=low
+
+  * initial release for Maemo 5 with new maintainer
+  * optifying
+ 
+ -- Alexandr Kutilin <kn1ght@kn1ght.ru>  Wen, 18 Jan 2010 09:50:21 +0300
+
 mtr (0.75-2) unstable; urgency=low
 
   * Use rm -f in rules clean target where necessary, closes: #499789

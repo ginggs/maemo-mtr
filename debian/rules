@@ -26,8 +26,8 @@ build-stamp:
 	touch aclocal.m4 && \
 	touch configure
 
-	mkdir mtr && cd mtr && ../configure $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --enable-gtk2
-	make -C mtr
+#	mkdir mtr && cd mtr && ../configure $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --enable-gtk2
+#	make -C mtr
 
 	mkdir mtr-tiny && cd mtr-tiny && ../configure --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --without-gtk
 	make -C mtr-tiny
@@ -61,9 +61,9 @@ binary-arch: build
 	$(MAKE) -C mtr-tiny prefix=`pwd`/debian/mtr-tiny/usr install
 	mv mtr-tiny/debian/tmp/usr/bin/mtr debian/mtr-tiny/usr/bin/
 
-	dh_installdocs -pmtr-tiny
+#	dh_installdocs -pmtr-tiny
 #	dh_installexamples -mtr-ptiny
-	dh_installmenu -pmtr-tiny
+#	dh_installmenu -pmtr-tiny
 #	dh_installinit -pmtr-tiny
 #	dh_installcron -pmtr-tiny
 	dh_installman -pmtr-tiny mtr.8
@@ -80,28 +80,28 @@ binary-arch: build
 	dh_md5sums -pmtr-tiny
 	dh_builddeb -pmtr-tiny
 
-	dh_installdirs -pmtr
-	$(MAKE) -C mtr prefix=`pwd`/debian/mtr/usr install
-	mv mtr/debian/tmp/usr/bin/mtr debian/mtr/usr/bin/
+#	dh_installdirs -pmtr
+#	$(MAKE) -C mtr prefix=`pwd`/debian/mtr/usr install
+#	mv mtr/debian/tmp/usr/bin/mtr debian/mtr/usr/bin/
 
-	dh_installdocs -pmtr
+#	dh_installdocs -pmtr
 #	dh_installexamples -pmtr
-	dh_installmenu -pmtr
+#	dh_installmenu -pmtr
 #	dh_installinit -pgtk
 #	dh_installcron -pmtr
-	dh_installman -pmtr mtr.8
+#	dh_installman -pmtr mtr.8
 #	dh_undocumented -pmtr
-	dh_installchangelogs -pmtr NEWS
-	dh_strip -pmtr
-	dh_compress -pmtr
+#	dh_installchangelogs -pmtr NEWS
+#	dh_strip -pmtr
+#	dh_compress -pmtr
 #	dh_fixperms -pmtr
 #	dh_suidregister -pmtr
-	dh_installdeb -pmtr
-	dh_shlibdeps -pmtr
-	dh_gencontrol -pmtr
+#	dh_installdeb -pmtr
+#	dh_shlibdeps -pmtr
+#	dh_gencontrol -pmtr
 #	dh_makeshlibs -pmtr
-	dh_md5sums -pmtr
-	dh_builddeb -pmtr
+#	dh_md5sums -pmtr
+#	dh_builddeb -pmtr
 
 
 source diff:                                                                  
