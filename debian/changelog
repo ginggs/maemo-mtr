@@ -1,9 +1,38 @@
-mtr (0.75-3) unstable; urgency=low
+mtr (0.82-3) unstable; urgency=low
 
-  * initial release for Maemo 5 with new maintainer
-  * optifying
- 
- -- Alexandr Kutilin <kn1ght@kn1ght.ru>  Wen, 18 Jan 2010 09:50:21 +0300
+  * Added patch by Raúl Benencia to fix FTBFS by generating aclocal.m4
+    before compiling, closes: #662583
+
+ -- Robert Woodcock <rcw@debian.org>  Sun, 15 Apr 2012 14:40:05 -0700
+
+mtr (0.82-2) unstable; urgency=low
+
+  * Add patch by Moritz Mühlenhoff to enable hardened build flags,
+    closes: #654117.
+
+ -- Robert Woodcock <rcw@debian.org>  Sun, 08 Jan 2012 08:05:30 -0800
+
+mtr (0.82-1) unstable; urgency=low
+
+  * New upstream version fixes FTBFS, closes: #650535
+
+ -- Robert Woodcock <rcw@debian.org>  Sun, 25 Dec 2011 09:40:19 -0800
+
+mtr (0.81-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Robert Woodcock <rcw@debian.org>  Sat, 26 Nov 2011 20:15:42 -0800
+
+mtr (0.80-1) unstable; urgency=low
+
+  * New upstream version
+  * Add Homepage field to debian/control, closes: #314651
+  * Change Priority field to match that of the archive overrides,
+    closes: #416567
+  * Lintian cleanups
+
+ -- Robert Woodcock <rcw@debian.org>  Mon, 06 Sep 2010 16:53:54 -0700
 
 mtr (0.75-2) unstable; urgency=low
 
