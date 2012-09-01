@@ -30,9 +30,6 @@ build-stamp:
 	automake --foreign --include-deps Makefile && \
 	autoconf
 
-	mkdir mtr && cd mtr && ../configure $(shell dpkg-buildflags --export=configure >/dev/null 2>&1 && dpkg-buildflags --export=configure) $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --enable-gtk2
-	make -C mtr
-
 	mkdir mtr-tiny && cd mtr-tiny && ../configure $(shell dpkg-buildflags --export=configure >/dev/null 2>&1 && dpkg-buildflags --export=configure) $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --without-gtk
 	make -C mtr-tiny
 
@@ -46,6 +43,9 @@ clean:
 
 	# Add here commands to clean up after the build process.
 	$(MAKE) distclean || true
+	rm -f aclocal.m4
+	rm -f configure
+	rm -f Makefile.in	
 
 	dh_clean
 
@@ -83,30 +83,6 @@ binary-arch: build
 #	dh_makeshlibs -pmtr-tiny
 	dh_md5sums -pmtr-tiny
 	dh_builddeb -pmtr-tiny
-
-	dh_installdirs -pmtr
-	$(MAKE) -C mtr prefix=`pwd`/debian/mtr/usr install
-	mv mtr/debian/tmp/usr/bin/mtr debian/mtr/usr/bin/
-
-	dh_installdocs -pmtr
-#	dh_installexamples -pmtr
-	dh_installmenu -pmtr
-#	dh_installinit -pgtk
-#	dh_installcron -pmtr
-	dh_installman -pmtr mtr.8
-#	dh_undocumented -pmtr
-	dh_installchangelogs -pmtr NEWS
-	dh_strip -pmtr
-	dh_compress -pmtr
-#	dh_fixperms -pmtr
-#	dh_suidregister -pmtr
-	dh_installdeb -pmtr
-	dh_shlibdeps -pmtr
-	dh_gencontrol -pmtr
-#	dh_makeshlibs -pmtr
-	dh_md5sums -pmtr
-	dh_builddeb -pmtr
-
 
 source diff:                                                                  
 	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
